@@ -5,9 +5,11 @@
   "type": "module",
   "scripts": {
     "build": "remix vite:build",
+    "check": "biome check \"**/*.{ts,tsx,js,jsx,md}\"",
     "deploy": "pnpm run build && wrangler pages deploy",
     "dev": "remix vite:dev",
-    "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
+    "format": "biome format --write \"**/*.{ts,tsx,js,jsx,md}\"",
+    "lint": "biome lint \"**/*.{ts,tsx,js,jsx,md}\"",
     "start": "wrangler pages dev ./build/client",
     "typecheck": "tsc",
     "typegen": "wrangler types",
@@ -18,6 +20,7 @@
     "@remix-run/cloudflare": "^2.14.0",
     "@remix-run/cloudflare-pages": "^2.14.0",
     "@remix-run/react": "^2.14.0",
+    "biome": "^0.3.3",
     "isbot": "^4.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
@@ -25,6 +28,7 @@
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20241112.0",
     "@remix-run/dev": "^2.14.0",
+    "@rollup/rollup-darwin-arm64": "^4.27.2",
     "@types/react": "^18.2.20",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.7.4",
